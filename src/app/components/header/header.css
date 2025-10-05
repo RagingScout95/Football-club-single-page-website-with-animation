@@ -1,0 +1,6 @@
+/* Header component styles - Sticky Navigation */
+
+/* Smooth transitions for interactive elements */
+nav {
+  transition: all 0.3s ease-in-out;
+}

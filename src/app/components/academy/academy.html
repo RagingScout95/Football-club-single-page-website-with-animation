@@ -1,0 +1,41 @@
+<!-- Academy Section -->
+<section id="academy" class="py-20 bg-dark-100">
+  <div class="container mx-auto px-6 lg:px-8">
+    <div class="text-center mb-16">
+      <h2 class="text-4xl md:text-5xl font-bold text-white mb-4">{{ content.academy.title }}</h2>
+      <p class="text-xl text-orange-400 font-semibold mb-4">{{ content.academy.subtitle }}</p>
+      <p class="text-lg text-gray-300 max-w-3xl mx-auto leading-relaxed">{{ content.academy.description }}</p>
+    </div>
+    
+    <!-- Academy Programs -->
+    <div class="grid md:grid-cols-3 gap-8">
+      @for (program of content.academy.programs; track program.name) {
+        <div class="bg-dark-200 rounded-lg p-8 border border-gray-700 hover:border-orange-500 transition-colors duration-300">
+          <h3 class="text-2xl font-bold text-white mb-2">{{ program.name }}</h3>
+          <p class="text-orange-400 font-semibold mb-4">{{ program.ageGroup }}</p>
+          <p class="text-gray-300 mb-6 leading-relaxed">{{ program.description }}</p>
+          
+          <!-- Features -->
+          <ul class="space-y-2 mb-6">
+            @for (feature of program.features; track feature) {
+              <li class="flex items-center text-gray-300">
+                <svg class="w-5 h-5 text-green-400 mr-2 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                </svg>
+                {{ feature }}
+              </li>
+            }
+          </ul>
+          
+          <!-- Price -->
+          <div class="text-3xl font-bold text-orange-500 mb-4">{{ program.price }}</div>
+          
+          <!-- CTA Button -->
+          <button class="w-full bg-gradient-to-r from-orange-500 to-red-500 text-white py-3 rounded-lg font-semibold hover:shadow-lg transition-shadow duration-300">
+            Enroll Now
+          </button>
+        </div>
+      }
+    </div>
+  </div>
+</section>
